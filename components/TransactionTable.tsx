@@ -40,28 +40,28 @@ export default function TransactionTable({ quarterlyTransactions }: TransactionT
             </div>
           </div>
           
-          {/* 交易表格 */}
+          {/* Transaction table */}
           <div className="overflow-x-auto">
             <table className="min-w-full bg-white/50 backdrop-blur-sm border border-gray-200/50 rounded-xl overflow-hidden shadow-lg">
               <thead className="bg-gradient-to-r from-gray-50 to-gray-100">
                 <tr>
                   <th className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
-                    操作
+                    Action
                   </th>
                   <th className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
-                    股票代码
+                    Symbol
                   </th>
                   <th className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
-                    公司名称
+                    Company
                   </th>
                   <th className="px-6 py-4 text-right text-xs font-bold text-gray-700 uppercase tracking-wider">
-                    股数
+                    Shares
                   </th>
                   <th className="px-6 py-4 text-right text-xs font-bold text-gray-700 uppercase tracking-wider">
-                    价格
+                    Price
                   </th>
                   <th className="px-6 py-4 text-right text-xs font-bold text-gray-700 uppercase tracking-wider">
-                    总价值
+                    Total Value
                   </th>
                 </tr>
               </thead>
@@ -90,7 +90,7 @@ export default function TransactionTable({ quarterlyTransactions }: TransactionT
                               )}
                             </svg>
                           </div>
-                          {isBuy ? '买入' : '卖出'}
+                          {isBuy ? 'Buy' : 'Sell'}
                         </span>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-900">

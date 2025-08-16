@@ -1,0 +1,44 @@
+[
+  {
+    "symbol": "AAPL",
+    "company": "Apple Inc.",
+    "shares": 1500000,
+    "marketValue": 285000000,
+    "percentage": 28.5
+  },
+  {
+    "symbol": "GOOGL",
+    "company": "Alphabet Inc.",
+    "shares": 800000,
+    "marketValue": 185000000,
+    "percentage": 18.5
+  },
+  {
+    "symbol": "MSFT",
+    "company": "Microsoft Corporation",
+    "shares": 650000,
+    "marketValue": 165000000,
+    "percentage": 16.5
+  },
+  {
+    "symbol": "TSLA",
+    "company": "Tesla Inc.",
+    "shares": 450000,
+    "marketValue": 135000000,
+    "percentage": 13.5
+  },
+  {
+    "symbol": "AMZN",
+    "company": "Amazon.com Inc.",
+    "shares": 350000,
+    "marketValue": 120000000,
+    "percentage": 12.0
+  },
+  {
+    "symbol": "NVDA",
+    "company": "NVIDIA Corporation",
+    "shares": 200000,
+    "marketValue": 110000000,
+    "percentage": 11.0
+  }
+]

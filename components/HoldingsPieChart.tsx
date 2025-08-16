@@ -24,8 +24,7 @@ const formatValue = (value: number) => {
   return new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
-    notation: 'compact',
-    maximumFractionDigits: 1,
+    maximumFractionDigits: 0,
   }).format(value);
 };
 

@@ -8,16 +8,16 @@ interface HoldingsPieChartProps {
 }
 
 const COLORS = [
-  '#0088FE',
-  '#00C49F', 
-  '#FFBB28',
-  '#FF8042',
-  '#8884D8',
-  '#82CA9D',
-  '#FFC658',
-  '#FF7C7C',
-  '#8DD1E1',
-  '#D084D0'
+  '#3B82F6', // Blue
+  '#10B981', // Emerald
+  '#F59E0B', // Amber
+  '#EF4444', // Red
+  '#8B5CF6', // Violet
+  '#06B6D4', // Cyan
+  '#F97316', // Orange
+  '#84CC16', // Lime
+  '#EC4899', // Pink
+  '#6366F1'  // Indigo
 ];
 
 const formatValue = (value: number) => {
@@ -33,12 +33,12 @@ const CustomTooltip = ({ active, payload }: any) => {
   if (active && payload && payload.length) {
     const data = payload[0].payload;
     return (
-      <div className="bg-white p-4 border border-gray-200 rounded-lg shadow-lg">
-        <p className="font-semibold text-gray-800">{data.company}</p>
-        <p className="text-sm text-gray-600">Symbol: {data.symbol}</p>
-        <p className="text-sm text-gray-600">Value: {formatValue(data.marketValue)}</p>
-        <p className="text-sm text-gray-600">Percentage: {data.percentage}%</p>
-        <p className="text-sm text-gray-600">Shares: {data.shares.toLocaleString()}</p>
+      <div className="bg-white/95 backdrop-blur-md p-4 border border-gray-200/50 rounded-xl shadow-2xl">
+        <p className="font-bold text-gray-800 text-lg">{data.company}</p>
+        <p className="text-sm text-blue-600 font-semibold">Symbol: {data.symbol}</p>
+        <p className="text-sm text-green-600 font-semibold">Value: {formatValue(data.marketValue)}</p>
+        <p className="text-sm text-purple-600 font-semibold">Percentage: {data.percentage}%</p>
+        <p className="text-sm text-orange-600 font-semibold">Shares: {data.shares.toLocaleString()}</p>
       </div>
     );
   }
@@ -56,18 +56,32 @@ export default function HoldingsPieChart({ holdings }: HoldingsPieChartProps) {
             cy="50%"
             labelLine={false}
             label={({ symbol, percentage }) => `${symbol} ${percentage}%`}
-            outerRadius={120}
+            outerRadius={130}
+            innerRadius={40}
             fill="#8884d8"
             dataKey="marketValue"
+            stroke="#ffffff"
+            strokeWidth={2}
           >
             {holdings.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+              <Cell 
+                key={`cell-${index}`} 
+                fill={COLORS[index % COLORS.length]}
+              />
             ))}
           </Pie>
           <Tooltip content={<CustomTooltip />} />
           <Legend 
-            formatter={(value, entry: any) => entry?.payload?.symbol || value}
+            formatter={(value, entry: any) => (
+              <span className="text-sm font-semibold text-gray-700">
+                {entry?.payload?.symbol || value}
+              </span>
+            )}
             iconType="circle"
+            wrapperStyle={{
+              paddingTop: '20px',
+              fontSize: '14px'
+            }}
           />
         </PieChart>
       </ResponsiveContainer>

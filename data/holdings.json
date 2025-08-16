@@ -2,46 +2,46 @@
   {
     "quarter": "Q1 2025",
     "date": "2025-03-31",
-    "aum": 69395,
+    "aum": 129028,
     "holdings": [
       {
         "symbol": "VOO",
         "company": "Vanguard S&P 500 ETF",
         "shares": 110,
-        "price": 515,
-        "marketValue": 56650,
-        "percentage": 81.63
+        "price": 512.33,
+        "marketValue": 56356,
+        "percentage": 43.68
       },
       {
         "symbol": "RBLX",
         "company": "Roblox Corporation",
         "shares": 1130,
-        "price": 10.92,
-        "marketValue": 12340,
-        "percentage": 17.78
+        "price": 58.92,
+        "marketValue": 66580,
+        "percentage": 51.6
       },
       {
         "symbol": "QQQM",
         "company": "Invesco NASDAQ 100 ETF",
         "shares": 30,
-        "price": 9.67,
-        "marketValue": 290,
-        "percentage": 0.42
+        "price": 192.74,
+        "marketValue": 5782,
+        "percentage": 4.48
       },
       {
         "symbol": "IBM",
         "company": "International Business Machines Corp.",
         "shares": 1,
-        "price": 78,
-        "marketValue": 78,
-        "percentage": 0.11
+        "price": 245.36,
+        "marketValue": 245,
+        "percentage": 0.19
       },
       {
         "symbol": "PYPL",
         "company": "PayPal Holdings Inc.",
         "shares": 1,
-        "price": 37,
-        "marketValue": 37,
+        "price": 65.25,
+        "marketValue": 65,
         "percentage": 0.05
       }
     ]
@@ -49,55 +49,55 @@
   {
     "quarter": "Q2 2025",
     "date": "2025-06-30",
-    "aum": 181518,
+    "aum": 217769,
     "holdings": [
       {
         "symbol": "VOO",
         "company": "Vanguard S&P 500 ETF",
         "shares": 161,
-        "price": 520,
-        "marketValue": 83720,
-        "percentage": 46.12
+        "price": 568.03,
+        "marketValue": 91453,
+        "percentage": 42
       },
       {
         "symbol": "RBLX",
         "company": "Roblox Corporation",
         "shares": 744,
-        "price": 60.59,
-        "marketValue": 45079,
-        "percentage": 24.83
+        "price": 105.2,
+        "marketValue": 78269,
+        "percentage": 35.94
       },
       {
         "symbol": "QQQM",
         "company": "Invesco NASDAQ 100 ETF",
         "shares": 155,
-        "price": 188.71,
-        "marketValue": 29250,
-        "percentage": 16.11
+        "price": 227.1,
+        "marketValue": 35201,
+        "percentage": 16.16
       },
       {
         "symbol": "UNH",
         "company": "UnitedHealth Group Inc.",
         "shares": 40,
-        "price": 580,
-        "marketValue": 23200,
-        "percentage": 12.78
+        "price": 311.97,
+        "marketValue": 12479,
+        "percentage": 5.73
       },
       {
         "symbol": "IBM",
         "company": "International Business Machines Corp.",
         "shares": 1,
-        "price": 190,
-        "marketValue": 190,
-        "percentage": 0.1
+        "price": 292.8,
+        "marketValue": 293,
+        "percentage": 0.13
       },
       {
         "symbol": "PYPL",
         "company": "PayPal Holdings Inc.",
         "shares": 1,
-        "price": 79,
-        "marketValue": 79,
-        "percentage": 0.04
+        "price": 74.32,
+        "marketValue": 74,
+        "percentage": 0.03
       }
     ]
   }

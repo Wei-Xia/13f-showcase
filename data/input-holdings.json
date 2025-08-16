@@ -7,31 +7,31 @@
         "symbol": "VOO",
         "company": "Vanguard S&P 500 ETF",
         "shares": 110,
-        "price": 515.00
+        "price": 512.33
       },
       {
         "symbol": "RBLX",
         "company": "Roblox Corporation",
         "shares": 1130,
-        "price": 10.92
+        "price": 58.92
       },
       {
         "symbol": "QQQM",
         "company": "Invesco NASDAQ 100 ETF",
         "shares": 30,
-        "price": 9.67
+        "price": 192.74
       },
       {
         "symbol": "IBM",
         "company": "International Business Machines Corp.",
         "shares": 1,
-        "price": 78.00
+        "price": 245.36
       },
       {
         "symbol": "PYPL",
         "company": "PayPal Holdings Inc.",
         "shares": 1,
-        "price": 37.00
+        "price": 65.25
       }
     ]
   },
@@ -43,37 +43,37 @@
         "symbol": "VOO",
         "company": "Vanguard S&P 500 ETF",
         "shares": 161,
-        "price": 520.00
+        "price": 568.03
       },
       {
         "symbol": "RBLX",
         "company": "Roblox Corporation",
         "shares": 744,
-        "price": 60.59
+        "price": 105.2
       },
       {
         "symbol": "QQQM",
         "company": "Invesco NASDAQ 100 ETF",
         "shares": 155,
-        "price": 188.71
+        "price": 227.1
       },
       {
         "symbol": "UNH",
         "company": "UnitedHealth Group Inc.",
         "shares": 40,
-        "price": 580.00
+        "price": 311.97
       },
       {
         "symbol": "IBM",
         "company": "International Business Machines Corp.",
         "shares": 1,
-        "price": 190.00
+        "price": 292.8
       },
       {
         "symbol": "PYPL",
         "company": "PayPal Holdings Inc.",
         "shares": 1,
-        "price": 79.00
+        "price": 74.32
       }
     ]
   }

@@ -10,6 +10,7 @@ const formatValue = (value: number) => {
   return new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
+    maximumFractionDigits: 0,
   }).format(value);
 };
 
@@ -62,7 +63,7 @@ export default function HoldingsTable({ holdings }: HoldingsTableProps) {
               </td>
               <td className="px-6 py-4 whitespace-nowrap text-right">
                 <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-bold bg-gradient-to-r from-green-100 to-emerald-100 text-green-800">
-                  {holding.percentage}%
+                  {Math.round(holding.percentage)}%
                 </span>
               </td>
             </tr>

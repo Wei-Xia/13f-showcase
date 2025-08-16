@@ -31,7 +31,7 @@
         "action": "buy",
         "symbol": "QQQM",
         "company": "Invesco NASDAQ 100 ETF",
-        "shares": 120
+        "shares": 125
       },
       {
         "action": "buy",
@@ -43,7 +43,7 @@
         "action": "sell",
         "symbol": "RBLX",
         "company": "Roblox Corporation",
-        "shares": 617
+        "shares": 386
       }
     ]
   }

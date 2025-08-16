@@ -7,17 +7,13 @@
         "action": "buy",
         "symbol": "QQQM",
         "company": "Invesco NASDAQ 100 ETF",
-        "shares": 30,
-        "price": 203.65,
-        "totalValue": 6086.18
+        "shares": 30
       },
       {
         "action": "sell",
         "symbol": "RBLX",
         "company": "Roblox Corporation",
-        "shares": 240,
-        "price": 62.00,
-        "totalValue": 14880.42
+        "shares": 240
       }
     ]
   },
@@ -29,33 +25,25 @@
         "action": "buy",
         "symbol": "VOO",
         "company": "Vanguard S&P 500 ETF",
-        "shares": 51,
-        "price": 473.71,
-        "totalValue": 24159.96
+        "shares": 51
       },
       {
         "action": "buy",
         "symbol": "QQQM",
         "company": "Invesco NASDAQ 100 ETF",
-        "shares": 120,
-        "price": 192.68,
-        "totalValue": 23125.17
+        "shares": 120
       },
       {
         "action": "buy",
         "symbol": "UNH",
         "company": "UnitedHealth Group Inc.",
-        "shares": 40,
-        "price": 289.83,
-        "totalValue": 11593.20
+        "shares": 40
       },
       {
         "action": "sell",
         "symbol": "RBLX",
         "company": "Roblox Corporation",
-        "shares": 617,
-        "price": 89.45,
-        "totalValue": 55168.65
+        "shares": 617
       }
     ]
   }

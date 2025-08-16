@@ -6,22 +6,6 @@ interface TransactionTableProps {
   quarterlyTransactions: QuarterlyTransactions[];
 }
 
-const formatValue = (value: number) => {
-  return new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    maximumFractionDigits: 0,
-  }).format(value);
-};
-
-const formatPrice = (price: number) => {
-  return new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    minimumFractionDigits: 2,
-  }).format(price);
-};
-
 export default function TransactionTable({ quarterlyTransactions }: TransactionTableProps) {
   // Sort quarterly transactions by date in descending order (most recent first)
   const sortedTransactions = [...quarterlyTransactions].sort((a, b) => {
@@ -61,12 +45,6 @@ export default function TransactionTable({ quarterlyTransactions }: TransactionT
                   <th className="px-6 py-4 text-right text-xs font-bold text-gray-700 uppercase tracking-wider">
                     Shares
                   </th>
-                  <th className="px-6 py-4 text-right text-xs font-bold text-gray-700 uppercase tracking-wider">
-                    Price
-                  </th>
-                  <th className="px-6 py-4 text-right text-xs font-bold text-gray-700 uppercase tracking-wider">
-                    Total Value
-                  </th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200/50">
@@ -105,14 +83,6 @@ export default function TransactionTable({ quarterlyTransactions }: TransactionT
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-right font-semibold">
                         {transaction.shares.toLocaleString()}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-right font-semibold">
-                        {formatPrice(transaction.price)}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-right">
-                        <span className={`font-bold text-lg ${isBuy ? 'text-green-600' : 'text-red-600'}`}>
-                          {formatValue(transaction.totalValue)}
-                        </span>
                       </td>
                     </tr>
                   );

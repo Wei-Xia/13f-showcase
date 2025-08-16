@@ -17,8 +17,6 @@ export interface Transaction {
   symbol: string;
   company: string;
   shares: number;
-  price: number;
-  totalValue: number;
 }
 
 export interface QuarterlyTransactions {

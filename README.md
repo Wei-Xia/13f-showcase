@@ -107,6 +107,48 @@ To update the assets under management history:
 - `date`: End date of quarter (YYYY-MM-DD format)
 - `aum`: Assets under management in USD
 
+### Trading Activity Data
+
+To update the quarterly trading activity:
+
+1. Open `/data/transactions.json`
+2. Add the new quarter's trading data:
+
+```json
+[
+  {
+    "quarter": "Q2 2024",
+    "date": "2024-06-30",
+    "transactions": [
+      {
+        "action": "buy",
+        "symbol": "NVDA",
+        "company": "NVIDIA Corporation",
+        "shares": 50000,
+        "price": 550.00,
+        "totalValue": 27500000
+      },
+      {
+        "action": "sell",
+        "symbol": "META",
+        "company": "Meta Platforms Inc.",
+        "shares": 100000,
+        "price": 485.00,
+        "totalValue": 48500000
+      }
+    ]
+  }
+]
+```
+
+**Required fields for each transaction:**
+- `action`: "buy" or "sell"
+- `symbol`: Stock ticker symbol
+- `company`: Full company name
+- `shares`: Number of shares traded
+- `price`: Price per share in USD
+- `totalValue`: Total transaction value (shares × price)
+
 ### Data Validation
 
 Make sure:
@@ -114,6 +156,8 @@ Make sure:
 - Market values are consistent with shares and current prices
 - AUM data is in chronological order
 - Date formats follow YYYY-MM-DD pattern
+- Transaction actions are either "buy" or "sell"
+- Transaction total values match shares × price calculations
 
 ## Deployment
 
@@ -155,10 +199,12 @@ The site can be deployed on any platform that supports Next.js:
 ├── components/
 │   ├── HoldingsPieChart.tsx    # Portfolio pie chart
 │   ├── AUMLineChart.tsx        # AUM growth chart  
-│   └── HoldingsTable.tsx       # Detailed holdings table
+│   ├── HoldingsTable.tsx       # Detailed holdings table
+│   └── TransactionTable.tsx    # Trading activity table
 ├── data/
 │   ├── holdings.json       # Current portfolio data
-│   └── aum.json           # AUM history data
+│   ├── aum.json           # AUM history data
+│   └── transactions.json  # Trading activity data
 ├── types/
 │   └── index.ts           # TypeScript definitions
 └── README.md

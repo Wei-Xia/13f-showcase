@@ -48,13 +48,8 @@ export default function HoldingsTable({ holdings }: HoldingsTableProps) {
               ${index % 2 === 0 ? 'bg-white/30' : 'bg-gray-50/30'} 
               hover:bg-blue-50/50 transition-colors duration-200
             `}>
-              <td className="px-6 py-4 whitespace-nowrap">
-                <div className="flex items-center">
-                  <div className="flex items-center justify-center w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full mr-3">
-                    <span className="text-white font-bold text-xs">{holding.symbol.charAt(0)}</span>
-                  </div>
-                  <span className="text-sm font-bold text-gray-900">{holding.symbol}</span>
-                </div>
+              <td className="px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-900">
+                {holding.symbol}
               </td>
               <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-medium">
                 {holding.company}

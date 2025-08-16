@@ -1,13 +1,16 @@
 import HoldingsPieChart from '@/components/HoldingsPieChart';
 import AUMLineChart from '@/components/AUMLineChart';
 import HoldingsTable from '@/components/HoldingsTable';
-import { Holding, AUM } from '@/types';
+import TransactionTable from '@/components/TransactionTable';
+import { Holding, AUM, QuarterlyTransactions } from '@/types';
 import holdingsData from '@/data/holdings.json';
 import aumData from '@/data/aum.json';
+import transactionsData from '@/data/transactions.json';
 
 export default function Home() {
   const holdings: Holding[] = holdingsData;
   const aum: AUM[] = aumData;
+  const transactions: QuarterlyTransactions[] = transactionsData as QuarterlyTransactions[];
   const latestAUM = aum[aum.length - 1];
   const latestQuarter = latestAUM.quarter;
   const totalValue = holdings.reduce((sum, holding) => sum + holding.marketValue, 0);
@@ -150,31 +153,29 @@ export default function Home() {
             <HoldingsTable holdings={holdings} />
           </div>
         </section>
-      </main>
 
-      {/* Footer */}
-      <footer className="bg-white/80 backdrop-blur-md border-t border-white/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="text-center">
-            <div className="flex items-center justify-center mb-4">
-              <div className="flex items-center justify-center w-8 h-8 bg-gradient-to-r from-gray-400 to-gray-600 rounded-full mr-3">
-                <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        {/* Transaction History Section */}
+        <section className="mb-16">
+          <div className="bg-white/70 backdrop-blur-md rounded-2xl shadow-xl border border-white/20 p-8 hover:shadow-2xl transition-all duration-300">
+            <div className="flex items-center mb-8">
+              <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-orange-500 to-red-600 rounded-xl mr-4">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
                 </svg>
               </div>
-              <span className="text-lg font-semibold text-gray-700">Disclosure Information</span>
+              <div>
+                <h2 className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+                  Quarterly Trading Activity
+                </h2>
+                <p className="text-gray-600 mt-1">
+                  Portfolio adjustments and trading decisions by quarter
+                </p>
+              </div>
             </div>
-            <div className="space-y-2 text-gray-600">
-              <p className="font-medium">
-                This information is based on holdings as of {latestAUM.date} and is subject to change.
-              </p>
-              <p>
-                Data source: Form 13F filing with the Securities and Exchange Commission.
-              </p>
-            </div>
+            <TransactionTable quarterlyTransactions={transactions} />
           </div>
-        </div>
-      </footer>
+        </section>
+      </main>
     </div>
   );
 }

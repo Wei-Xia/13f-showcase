@@ -11,3 +11,18 @@ export interface AUM {
   date: string;
   aum: number;
 }
+
+export interface Transaction {
+  action: 'buy' | 'sell';
+  symbol: string;
+  company: string;
+  shares: number;
+  price: number;
+  totalValue: number;
+}
+
+export interface QuarterlyTransactions {
+  quarter: string;
+  date: string;
+  transactions: Transaction[];
+}

@@ -1,44 +1,44 @@
 [
   {
-    "symbol": "AAPL",
-    "company": "Apple Inc.",
-    "shares": 1500000,
-    "marketValue": 285000000,
-    "percentage": 28.5
+    "symbol": "VOO",
+    "company": "Vanguard S&P 500 ETF",
+    "shares": 161,
+    "marketValue": 83720,
+    "percentage": 46.84
   },
   {
-    "symbol": "GOOGL",
-    "company": "Alphabet Inc.",
-    "shares": 800000,
-    "marketValue": 185000000,
-    "percentage": 18.5
+    "symbol": "RBLX",
+    "company": "Roblox Corporation",
+    "shares": 644,
+    "marketValue": 45080,
+    "percentage": 25.22
   },
   {
-    "symbol": "MSFT",
-    "company": "Microsoft Corporation",
-    "shares": 650000,
-    "marketValue": 165000000,
-    "percentage": 16.5
+    "symbol": "QQQM",
+    "company": "Invesco NASDAQ 100 ETF",
+    "shares": 150,
+    "marketValue": 29250,
+    "percentage": 16.37
   },
   {
-    "symbol": "TSLA",
-    "company": "Tesla Inc.",
-    "shares": 450000,
-    "marketValue": 135000000,
-    "percentage": 13.5
+    "symbol": "UNH",
+    "company": "UnitedHealth Group Inc.",
+    "shares": 40,
+    "marketValue": 23200,
+    "percentage": 12.98
   },
   {
-    "symbol": "AMZN",
-    "company": "Amazon.com Inc.",
-    "shares": 350000,
-    "marketValue": 120000000,
-    "percentage": 12.0
+    "symbol": "IBM",
+    "company": "International Business Machines Corp.",
+    "shares": 1,
+    "marketValue": 190,
+    "percentage": 0.11
   },
   {
-    "symbol": "NVDA",
-    "company": "NVIDIA Corporation",
-    "shares": 200000,
-    "marketValue": 110000000,
-    "percentage": 11.0
+    "symbol": "PYPL",
+    "company": "PayPal Holdings Inc.",
+    "shares": 1,
+    "marketValue": 79,
+    "percentage": 0.04
   }
 ]

@@ -1,61 +1,61 @@
 [
   {
-    "quarter": "Q2 2024",
-    "date": "2024-06-30",
+    "quarter": "Q1 2025",
+    "date": "2025-03-31",
     "transactions": [
       {
         "action": "buy",
-        "symbol": "NVDA",
-        "company": "NVIDIA Corporation",
-        "shares": 50000,
-        "price": 550.00,
-        "totalValue": 27500000
+        "symbol": "QQQM",
+        "company": "Invesco NASDAQ 100 ETF",
+        "shares": 30,
+        "price": 203.65,
+        "totalValue": 6086.18
       },
       {
         "action": "sell",
-        "symbol": "META",
-        "company": "Meta Platforms Inc.",
-        "shares": 100000,
-        "price": 485.00,
-        "totalValue": 48500000
-      },
-      {
-        "action": "buy",
-        "symbol": "AAPL",
-        "company": "Apple Inc.",
-        "shares": 200000,
-        "price": 190.00,
-        "totalValue": 38200000
+        "symbol": "RBLX",
+        "company": "Roblox Corporation",
+        "shares": 240,
+        "price": 62.00,
+        "totalValue": 14880.42
       }
     ]
   },
   {
-    "quarter": "Q1 2024",
-    "date": "2024-03-31",
+    "quarter": "Q2 2025",
+    "date": "2025-06-30",
     "transactions": [
       {
         "action": "buy",
-        "symbol": "TSLA",
-        "company": "Tesla Inc.",
-        "shares": 150000,
-        "price": 300.00,
-        "totalValue": 45000000
-      },
-      {
-        "action": "sell",
-        "symbol": "NFLX",
-        "company": "Netflix Inc.",
-        "shares": 80000,
-        "price": 600.00,
-        "totalValue": 48000000
+        "symbol": "VOO",
+        "company": "Vanguard S&P 500 ETF",
+        "shares": 51,
+        "price": 473.71,
+        "totalValue": 24159.96
       },
       {
         "action": "buy",
-        "symbol": "GOOGL",
-        "company": "Alphabet Inc.",
-        "shares": 100000,
-        "price": 140.00,
-        "totalValue": 14000000
+        "symbol": "QQQM",
+        "company": "Invesco NASDAQ 100 ETF",
+        "shares": 120,
+        "price": 192.68,
+        "totalValue": 23125.17
+      },
+      {
+        "action": "buy",
+        "symbol": "UNH",
+        "company": "UnitedHealth Group Inc.",
+        "shares": 40,
+        "price": 289.83,
+        "totalValue": 11593.20
+      },
+      {
+        "action": "sell",
+        "symbol": "RBLX",
+        "company": "Roblox Corporation",
+        "shares": 617,
+        "price": 89.45,
+        "totalValue": 55168.65
       }
     ]
   }

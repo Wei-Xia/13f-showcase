@@ -23,9 +23,14 @@ const formatPrice = (price: number) => {
 };
 
 export default function TransactionTable({ quarterlyTransactions }: TransactionTableProps) {
+  // Sort quarterly transactions by date in descending order (most recent first)
+  const sortedTransactions = [...quarterlyTransactions].sort((a, b) => {
+    return new Date(b.date).getTime() - new Date(a.date).getTime();
+  });
+
   return (
     <div className="space-y-8">
-      {quarterlyTransactions.map((quarter) => (
+      {sortedTransactions.map((quarter) => (
         <div key={quarter.quarter} className="space-y-4">
           <div className="flex items-center mb-6">
             <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl mr-4">

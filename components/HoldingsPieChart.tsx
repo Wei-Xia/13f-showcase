@@ -45,12 +45,31 @@ const CustomTooltip = ({ active, payload }: any) => {
 };
 
 export default function HoldingsPieChart({ holdings }: HoldingsPieChartProps) {
+  // Separate holdings into major (>=1%) and minor (<1%)
+  const majorHoldings = holdings.filter(holding => holding.percentage >= 1);
+  const minorHoldings = holdings.filter(holding => holding.percentage < 1);
+  
+  // Create "Others" category if there are minor holdings
+  const chartData = [...majorHoldings];
+  if (minorHoldings.length > 0) {
+    const othersTotal = minorHoldings.reduce((sum, holding) => sum + holding.marketValue, 0);
+    const othersPercentage = minorHoldings.reduce((sum, holding) => sum + holding.percentage, 0);
+    
+    chartData.push({
+      symbol: 'Others',
+      company: `Others (${minorHoldings.length} holdings)`,
+      shares: minorHoldings.reduce((sum, holding) => sum + holding.shares, 0),
+      marketValue: othersTotal,
+      percentage: parseFloat(othersPercentage.toFixed(2))
+    });
+  }
+
   return (
     <div className="w-full h-96">
       <ResponsiveContainer width="100%" height="100%">
         <PieChart>
           <Pie
-            data={holdings}
+            data={chartData}
             cx="50%"
             cy="50%"
             labelLine={false}
@@ -62,7 +81,7 @@ export default function HoldingsPieChart({ holdings }: HoldingsPieChartProps) {
             stroke="#ffffff"
             strokeWidth={2}
           >
-            {holdings.map((entry, index) => (
+            {chartData.map((entry, index) => (
               <Cell 
                 key={`cell-${index}`} 
                 fill={COLORS[index % COLORS.length]}

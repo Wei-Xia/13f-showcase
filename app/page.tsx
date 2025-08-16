@@ -2,15 +2,23 @@ import HoldingsPieChart from '@/components/HoldingsPieChart';
 import AUMLineChart from '@/components/AUMLineChart';
 import HoldingsTable from '@/components/HoldingsTable';
 import TransactionTable from '@/components/TransactionTable';
-import { Holding, AUM, QuarterlyTransactions } from '@/types';
+import { Holding, AUM, QuarterlyTransactions, QuarterlyHoldings } from '@/types';
 import holdingsData from '@/data/holdings.json';
-import aumData from '@/data/aum.json';
 import transactionsData from '@/data/transactions.json';
 
 export default function Home() {
-  const holdings: Holding[] = holdingsData;
-  const aum: AUM[] = aumData;
+  const quarterlyHoldings: QuarterlyHoldings[] = holdingsData as QuarterlyHoldings[];
   const transactions: QuarterlyTransactions[] = transactionsData as QuarterlyTransactions[];
+  
+  // Extract AUM data from quarterly holdings
+  const aum: AUM[] = quarterlyHoldings.map(qh => ({
+    quarter: qh.quarter,
+    date: qh.date,
+    aum: qh.aum
+  }));
+  
+  const latestHoldings = quarterlyHoldings[quarterlyHoldings.length - 1];
+  const holdings: Holding[] = latestHoldings.holdings;
   const latestAUM = aum[aum.length - 1];
   const latestQuarter = latestAUM.quarter;
   const totalValue = holdings.reduce((sum, holding) => sum + holding.marketValue, 0);

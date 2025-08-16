@@ -6,6 +6,13 @@ export interface Holding {
   percentage: number;
 }
 
+export interface QuarterlyHoldings {
+  quarter: string;
+  date: string;
+  aum: number;
+  holdings: Holding[];
+}
+
 export interface AUM {
   quarter: string;
   date: string;

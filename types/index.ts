@@ -2,6 +2,7 @@ export interface Holding {
   symbol: string;
   company: string;
   shares: number;
+  price: number;
   marketValue: number;
   percentage: number;
 }

@@ -8,6 +8,7 @@
         "symbol": "VOO",
         "company": "Vanguard S&P 500 ETF",
         "shares": 110,
+        "price": 515.00,
         "marketValue": 56650,
         "percentage": 81.67
       },
@@ -15,6 +16,7 @@
         "symbol": "RBLX",
         "company": "Roblox Corporation",
         "shares": 1130,
+        "price": 10.92,
         "marketValue": 12340,
         "percentage": 17.78
       },
@@ -22,6 +24,7 @@
         "symbol": "QQQM",
         "company": "Invesco NASDAQ 100 ETF",
         "shares": 30,
+        "price": 9.67,
         "marketValue": 290,
         "percentage": 0.42
       },
@@ -29,6 +32,7 @@
         "symbol": "IBM",
         "company": "International Business Machines Corp.",
         "shares": 1,
+        "price": 78.00,
         "marketValue": 78,
         "percentage": 0.11
       },
@@ -36,6 +40,7 @@
         "symbol": "PYPL",
         "company": "PayPal Holdings Inc.",
         "shares": 1,
+        "price": 37.00,
         "marketValue": 37,
         "percentage": 0.05
       }
@@ -50,6 +55,7 @@
         "symbol": "VOO",
         "company": "Vanguard S&P 500 ETF",
         "shares": 161,
+        "price": 520.00,
         "marketValue": 83720,
         "percentage": 46.84
       },
@@ -57,6 +63,7 @@
         "symbol": "RBLX",
         "company": "Roblox Corporation",
         "shares": 744,
+        "price": 60.59,
         "marketValue": 45080,
         "percentage": 25.22
       },
@@ -64,6 +71,7 @@
         "symbol": "QQQM",
         "company": "Invesco NASDAQ 100 ETF",
         "shares": 155,
+        "price": 188.71,
         "marketValue": 29250,
         "percentage": 16.37
       },
@@ -71,6 +79,7 @@
         "symbol": "UNH",
         "company": "UnitedHealth Group Inc.",
         "shares": 40,
+        "price": 580.00,
         "marketValue": 23200,
         "percentage": 12.98
       },
@@ -78,6 +87,7 @@
         "symbol": "IBM",
         "company": "International Business Machines Corp.",
         "shares": 1,
+        "price": 190.00,
         "marketValue": 190,
         "percentage": 0.11
       },
@@ -85,6 +95,7 @@
         "symbol": "PYPL",
         "company": "PayPal Holdings Inc.",
         "shares": 1,
+        "price": 79.00,
         "marketValue": 79,
         "percentage": 0.04
       }

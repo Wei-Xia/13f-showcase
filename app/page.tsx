@@ -5,9 +5,8 @@ import HoldingsPieChart from '@/components/HoldingsPieChart';
 import AUMLineChart from '@/components/AUMLineChart';
 import HoldingsTable from '@/components/HoldingsTable';
 import TransactionTable from '@/components/TransactionTable';
-import PerformanceMonitor from '@/components/PerformanceMonitor';
 import usePortfolioData from '@/hooks/usePortfolioData';
-import { Holding, AUM, QuarterlyTransactions, QuarterlyHoldings } from '@/types';
+import { Holding, AUM } from '@/types';
 
 function LoadingSpinner() {
   return (
@@ -231,9 +230,6 @@ function PortfolioContent() {
           </div>
         </section>
       </main>
-      
-      {/* 性能监控器 */}
-      <PerformanceMonitor onRefresh={refreshData} />
     </div>
   );
 }

@@ -7,10 +7,28 @@ interface TransactionTableProps {
 }
 
 export default function TransactionTable({ quarterlyTransactions }: TransactionTableProps) {
-  // Sort quarterly transactions by date in descending order (most recent first)
-  const sortedTransactions = [...quarterlyTransactions].sort((a, b) => {
-    return new Date(b.date).getTime() - new Date(a.date).getTime();
-  });
+  // Filter out Q1 2024 and sort quarterly transactions by date in descending order (most recent first)
+  const sortedTransactions = [...quarterlyTransactions]
+    .filter((quarter) => quarter.quarter !== 'Q1 2024')
+    .sort((a, b) => {
+      return new Date(b.date).getTime() - new Date(a.date).getTime();
+    });
+
+  // Function to sort transactions within a quarter: buy first, then by shares descending
+  const sortTransactions = (transactions: any[]) => {
+    return [...transactions].sort((a, b) => {
+      // First, sort by action: buy (1) comes before sell (0)
+      const actionOrder = { buy: 1, sell: 0 };
+      const actionDiff = actionOrder[b.action as keyof typeof actionOrder] - actionOrder[a.action as keyof typeof actionOrder];
+      
+      if (actionDiff !== 0) {
+        return actionDiff;
+      }
+      
+      // If same action, sort by shares descending
+      return b.shares - a.shares;
+    });
+  };
 
   return (
     <div className="space-y-8">
@@ -48,7 +66,7 @@ export default function TransactionTable({ quarterlyTransactions }: TransactionT
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200/50">
-                {quarter.transactions.map((transaction, index) => {
+                {sortTransactions(quarter.transactions).map((transaction, index) => {
                   const isBuy = transaction.action === 'buy';
                   return (
                     <tr key={index} className={`

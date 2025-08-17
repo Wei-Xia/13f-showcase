@@ -1,6 +1,6 @@
 'use client';
 
-import { QuarterlyTransactions } from '@/types';
+import { QuarterlyTransactions, Transaction } from '@/types';
 
 interface TransactionTableProps {
   quarterlyTransactions: QuarterlyTransactions[];
@@ -15,7 +15,7 @@ export default function TransactionTable({ quarterlyTransactions }: TransactionT
     });
 
   // Function to sort transactions within a quarter: buy first, then by shares descending
-  const sortTransactions = (transactions: any[]) => {
+  const sortTransactions = (transactions: Transaction[]) => {
     return [...transactions].sort((a, b) => {
       // First, sort by action: buy (1) comes before sell (0)
       const actionOrder = { buy: 1, sell: 0 };

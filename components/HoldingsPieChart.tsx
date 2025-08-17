@@ -28,7 +28,10 @@ const formatValue = (value: number) => {
   }).format(value);
 };
 
-const CustomTooltip = ({ active, payload }: any) => {
+const CustomTooltip = ({ active, payload }: {
+  active?: boolean;
+  payload?: Array<{ payload: Holding }>;
+}) => {
   if (active && payload && payload.length) {
     const data = payload[0].payload;
     return (
@@ -54,11 +57,14 @@ export default function HoldingsPieChart({ holdings }: HoldingsPieChartProps) {
   if (minorHoldings.length > 0) {
     const othersTotal = minorHoldings.reduce((sum, holding) => sum + holding.marketValue, 0);
     const othersPercentage = minorHoldings.reduce((sum, holding) => sum + holding.percentage, 0);
+    const othersShares = minorHoldings.reduce((sum, holding) => sum + holding.shares, 0);
+    const othersAvgPrice = othersShares > 0 ? othersTotal / othersShares : 0;
     
     chartData.push({
       symbol: 'Others',
       company: `Others (${minorHoldings.length} holdings)`,
-      shares: minorHoldings.reduce((sum, holding) => sum + holding.shares, 0),
+      shares: othersShares,
+      price: parseFloat(othersAvgPrice.toFixed(2)),
       marketValue: othersTotal,
       percentage: parseFloat(othersPercentage.toFixed(2))
     });
@@ -90,7 +96,8 @@ export default function HoldingsPieChart({ holdings }: HoldingsPieChartProps) {
           </Pie>
           <Tooltip content={<CustomTooltip />} />
           <Legend 
-            formatter={(value, entry: any) => (
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            formatter={(value: string, entry: any) => (
               <span className="text-sm font-semibold text-gray-700">
                 {entry?.payload?.symbol || value}
               </span>

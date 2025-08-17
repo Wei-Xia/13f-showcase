@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "generate-holdings": "node scripts/generate-holdings.mjs"
+    "generate-holdings": "node scripts/generate-holdings.mjs",
+    "export": "next build && next export",
+    "test-deploy": "scripts/test-deployment.sh"
   },
   "dependencies": {
     "next": "15.4.6",

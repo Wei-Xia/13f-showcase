@@ -1,6 +1,6 @@
 'use client';
 
-import { QuarterlyTransactions, Transaction } from '@/types';
+import { QuarterlyTransactions } from '@/types';
 
 interface TransactionTableProps {
   quarterlyTransactions: QuarterlyTransactions[];

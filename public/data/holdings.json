@@ -2,163 +2,163 @@
   {
     "quarter": "Q1 2024",
     "date": "2024-03-31",
-    "aum": 76588,
+    "aum": 50365,
     "holdings": [
       {
         "symbol": "RBLX",
         "company": "Roblox Corporation",
-        "shares": 1144,
-        "price": 58.92,
-        "marketValue": 67404,
-        "percentage": 88.01
+        "shares": 1074,
+        "price": 38.18,
+        "marketValue": 41005,
+        "percentage": 81.42
       },
       {
         "symbol": "IBM",
         "company": "International Business Machines Corp.",
         "shares": 1,
-        "price": 245.36,
-        "marketValue": 245,
-        "percentage": 0.32
+        "price": 182.29,
+        "marketValue": 182,
+        "percentage": 0.36
       },
       {
         "symbol": "PYPL",
         "company": "PayPal Holdings Inc.",
         "shares": 137,
-        "price": 65.25,
-        "marketValue": 8939,
-        "percentage": 11.67
+        "price": 66.99,
+        "marketValue": 9178,
+        "percentage": 18.22
       }
     ]
   },
   {
     "quarter": "Q2 2024",
     "date": "2024-06-30",
-    "aum": 104170,
+    "aum": 69472,
     "holdings": [
       {
         "symbol": "VOO",
         "company": "Vanguard S&P 500 ETF",
         "shares": 37,
-        "price": 512.33,
-        "marketValue": 18956,
-        "percentage": 18.2
+        "price": 493.75,
+        "marketValue": 18269,
+        "percentage": 26.3
       },
       {
         "symbol": "RBLX",
         "company": "Roblox Corporation",
-        "shares": 1441,
-        "price": 58.92,
-        "marketValue": 84904,
-        "percentage": 81.51
+        "shares": 1370,
+        "price": 37.21,
+        "marketValue": 50978,
+        "percentage": 73.38
       },
       {
         "symbol": "IBM",
         "company": "International Business Machines Corp.",
         "shares": 1,
-        "price": 245.36,
-        "marketValue": 245,
+        "price": 166.74,
+        "marketValue": 167,
         "percentage": 0.24
       },
       {
         "symbol": "PYPL",
         "company": "PayPal Holdings Inc.",
         "shares": 1,
-        "price": 65.25,
-        "marketValue": 65,
-        "percentage": 0.06
+        "price": 58.03,
+        "marketValue": 58,
+        "percentage": 0.08
       }
     ]
   },
   {
     "quarter": "Q3 2024",
     "date": "2024-09-30",
-    "aum": 151570,
+    "aum": 131892,
     "holdings": [
       {
         "symbol": "VOO",
         "company": "Vanguard S&P 500 ETF",
         "shares": 110,
-        "price": 512.33,
-        "marketValue": 56356,
-        "percentage": 37.18
+        "price": 522.56,
+        "marketValue": 57482,
+        "percentage": 43.58
       },
       {
         "symbol": "RBLX",
         "company": "Roblox Corporation",
-        "shares": 1441,
-        "price": 58.92,
-        "marketValue": 84904,
-        "percentage": 56.02
+        "shares": 1370,
+        "price": 44.26,
+        "marketValue": 60636,
+        "percentage": 45.97
       },
       {
         "symbol": "IBM",
         "company": "International Business Machines Corp.",
         "shares": 1,
-        "price": 245.36,
-        "marketValue": 245,
+        "price": 215.01,
+        "marketValue": 215,
         "percentage": 0.16
       },
       {
         "symbol": "PYPL",
         "company": "PayPal Holdings Inc.",
         "shares": 1,
-        "price": 65.25,
-        "marketValue": 65,
-        "percentage": 0.04
+        "price": 78.03,
+        "marketValue": 78,
+        "percentage": 0.06
       },
       {
         "symbol": "PDD",
         "company": "PDD Holdings Inc.",
         "shares": 100,
-        "price": 100,
-        "marketValue": 10000,
-        "percentage": 6.6
+        "price": 134.81,
+        "marketValue": 13481,
+        "percentage": 10.22
       }
     ]
   },
   {
     "quarter": "Q4 2024",
     "date": "2024-12-31",
-    "aum": 141570,
+    "aum": 138451,
     "holdings": [
       {
         "symbol": "VOO",
         "company": "Vanguard S&P 500 ETF",
         "shares": 110,
-        "price": 512.33,
-        "marketValue": 56356,
-        "percentage": 39.81
+        "price": 535.3,
+        "marketValue": 58883,
+        "percentage": 42.53
       },
       {
         "symbol": "RBLX",
         "company": "Roblox Corporation",
-        "shares": 1441,
-        "price": 58.92,
-        "marketValue": 84904,
-        "percentage": 59.97
+        "shares": 1370,
+        "price": 57.86,
+        "marketValue": 79268,
+        "percentage": 57.25
       },
       {
         "symbol": "IBM",
         "company": "International Business Machines Corp.",
         "shares": 1,
-        "price": 245.36,
-        "marketValue": 245,
-        "percentage": 0.17
+        "price": 215.47,
+        "marketValue": 215,
+        "percentage": 0.16
       },
       {
         "symbol": "PYPL",
         "company": "PayPal Holdings Inc.",
         "shares": 1,
-        "price": 65.25,
-        "marketValue": 65,
-        "percentage": 0.05
+        "price": 85.35,
+        "marketValue": 85,
+        "percentage": 0.06
       }
     ]
   },
   {
     "quarter": "Q1 2025",
     "date": "2025-03-31",
-    "aum": 129028,
+    "aum": 128316,
     "holdings": [
       {
         "symbol": "VOO",
@@ -166,15 +166,15 @@
         "shares": 110,
         "price": 512.33,
         "marketValue": 56356,
-        "percentage": 43.68
+        "percentage": 43.92
       },
       {
         "symbol": "RBLX",
         "company": "Roblox Corporation",
         "shares": 1130,
-        "price": 58.92,
-        "marketValue": 66580,
-        "percentage": 51.6
+        "price": 58.29,
+        "marketValue": 65868,
+        "percentage": 51.33
       },
       {
         "symbol": "QQQM",
@@ -182,7 +182,7 @@
         "shares": 30,
         "price": 192.74,
         "marketValue": 5782,
-        "percentage": 4.48
+        "percentage": 4.51
       },
       {
         "symbol": "IBM",

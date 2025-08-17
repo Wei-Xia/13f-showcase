@@ -12,7 +12,7 @@
         "action": "buy",
         "symbol": "RBLX",
         "company": "Roblox Corporation",
-        "shares": 297
+        "shares": 296
       },
       {
         "action": "sell",
@@ -66,7 +66,7 @@
         "action": "sell",
         "symbol": "RBLX",
         "company": "Roblox Corporation",
-        "shares": 311
+        "shares": 240
       },
       {
         "action": "buy",

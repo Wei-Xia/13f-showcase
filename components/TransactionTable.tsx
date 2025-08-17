@@ -48,32 +48,33 @@ export default function TransactionTable({ quarterlyTransactions }: TransactionT
           
           {/* Transaction table */}
           <div className="overflow-x-auto">
-            <table className="min-w-full bg-white/50 backdrop-blur-sm border border-gray-200/50 rounded-xl overflow-hidden shadow-lg">
-              <thead className="bg-gradient-to-r from-gray-50 to-gray-100">
-                <tr>
-                  <th className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
-                    Action
-                  </th>
-                  <th className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
-                    Symbol
-                  </th>
-                  <th className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
-                    Company
-                  </th>
-                  <th className="px-6 py-4 text-right text-xs font-bold text-gray-700 uppercase tracking-wider">
-                    Shares
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-200/50">
+            <div className="min-w-full bg-white/50 backdrop-blur-sm border border-gray-200/50 rounded-xl overflow-hidden shadow-lg">
+              {/* Table Header */}
+              <div className="bg-gradient-to-r from-gray-50 to-gray-100 grid grid-cols-12 gap-4 px-6 py-4 border-b border-gray-200/50">
+                <div className="col-span-2 text-xs font-bold text-gray-700 uppercase tracking-wider">
+                  Action
+                </div>
+                <div className="col-span-2 text-xs font-bold text-gray-700 uppercase tracking-wider">
+                  Symbol
+                </div>
+                <div className="col-span-6 text-xs font-bold text-gray-700 uppercase tracking-wider">
+                  Company
+                </div>
+                <div className="col-span-2 text-xs font-bold text-gray-700 uppercase tracking-wider text-right">
+                  Shares
+                </div>
+              </div>
+              
+              {/* Table Body */}
+              <div className="divide-y divide-gray-200/50">
                 {sortTransactions(quarter.transactions).map((transaction, index) => {
                   const isBuy = transaction.action === 'buy';
                   return (
-                    <tr key={index} className={`
-                      ${index % 2 === 0 ? 'bg-white/30' : 'bg-gray-50/30'} 
-                      hover:bg-blue-50/50 transition-colors duration-200
+                    <div key={index} className={`
+                      grid grid-cols-12 gap-4 px-6 py-4 hover:bg-blue-50/50 transition-colors duration-200
+                      ${index % 2 === 0 ? 'bg-white/30' : 'bg-gray-50/30'}
                     `}>
-                      <td className="px-6 py-4 whitespace-nowrap">
+                      <div className="col-span-2 flex items-center">
                         <span className={`
                           inline-flex items-center px-3 py-1 rounded-full text-xs font-bold
                           ${isBuy ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}
@@ -92,21 +93,21 @@ export default function TransactionTable({ quarterlyTransactions }: TransactionT
                           </div>
                           {isBuy ? 'Buy' : 'Sell'}
                         </span>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-900">
+                      </div>
+                      <div className="col-span-2 flex items-center text-sm font-bold text-gray-900">
                         {transaction.symbol}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-medium">
+                      </div>
+                      <div className="col-span-6 flex items-center text-sm text-gray-900 font-medium">
                         {transaction.company}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-right font-semibold">
+                      </div>
+                      <div className="col-span-2 flex items-center justify-end text-sm text-gray-900 font-semibold">
                         {transaction.shares.toLocaleString()}
-                      </td>
-                    </tr>
+                      </div>
+                    </div>
                   );
                 })}
-              </tbody>
-            </table>
+              </div>
+            </div>
           </div>
         </div>
       ))}

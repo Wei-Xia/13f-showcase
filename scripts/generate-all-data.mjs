@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * 自动生成 holdings.json 的脚本
+ * 自动生成 holdings.json 和 transactions.json 的脚本
  * 从简化的 input-holdings.json 生成包含所有计算字段的完整数据
  */
 
@@ -10,7 +10,8 @@ import path from 'path';
 
 const DATA_DIR = path.join(process.cwd(), 'data');
 const INPUT_FILE = path.join(DATA_DIR, 'input-holdings.json');
-const OUTPUT_FILE = path.join(DATA_DIR, 'holdings.json');
+const HOLDINGS_OUTPUT_FILE = path.join(DATA_DIR, 'holdings.json');
+const TRANSACTIONS_OUTPUT_FILE = path.join(DATA_DIR, 'transactions.json');
 
 // 计算持仓数据的函数
 function calculateQuarterHoldings(inputData) {
@@ -41,6 +42,7 @@ function calculateAllQuartersHoldings(inputQuarters) {
   return inputQuarters.map(quarter => calculateQuarterHoldings(quarter));
 }
 
+// 从持仓快照生成交易记录
 function generateTransactionHistory(quarters) {
   const transactionHistory = [];
 
@@ -103,8 +105,6 @@ function generateTransactionHistory(quarters) {
 
   return transactionHistory;
 }
-  return transactionHistory;
-}
 
 function validateCalculations(quarterData) {
   const errors = [];
@@ -126,31 +126,25 @@ function validateCalculations(quarterData) {
     errors
   };
 }
-}
 
 async function generateHoldings() {
   try {
-    console.log('🔄 开始生成 holdings.json...');
+    console.log('🔄 开始生成数据文件...');
     
     // 1. 读取输入数据
     console.log('📖 读取输入数据...');
     const inputData = JSON.parse(fs.readFileSync(INPUT_FILE, 'utf8'));
     console.log(`✅ 成功读取 ${inputData.length} 个季度的数据`);
     
-    // 2. 计算所有字段
+    // 2. 计算持仓数据
     console.log('🧮 计算市场价值、AUM 和百分比...');
     const calculatedData = calculateAllQuartersHoldings(inputData);
     
-    // 2.5 自动生成交易记录
+    // 3. 自动生成交易记录
     console.log('📊 自动计算交易明细...');
     const transactionHistory = generateTransactionHistory(inputData);
     
-    // 写入交易记录
-    const transactionsPath = path.join(DATA_DIR, 'transactions.json');
-    fs.writeFileSync(transactionsPath, JSON.stringify(transactionHistory, null, 2), 'utf8');
-    console.log('✅ 交易记录已自动生成');
-    
-    // 3. 验证计算结果
+    // 4. 验证计算结果
     console.log('✅ 验证计算结果...');
     let allValid = true;
     for (const quarter of calculatedData) {
@@ -169,19 +163,35 @@ async function generateHoldings() {
       process.exit(1);
     }
     
-    // 4. 写入输出文件
+    // 5. 写入输出文件
     console.log('💾 写入 holdings.json...');
-    fs.writeFileSync(OUTPUT_FILE, JSON.stringify(calculatedData, null, 2), 'utf8');
-    console.log('✅ 成功生成 holdings.json');
+    fs.writeFileSync(HOLDINGS_OUTPUT_FILE, JSON.stringify(calculatedData, null, 2), 'utf8');
+    console.log('✅ holdings.json 生成完成');
     
-    // 5. 显示摘要信息
+    console.log('💾 写入 transactions.json...');
+    fs.writeFileSync(TRANSACTIONS_OUTPUT_FILE, JSON.stringify(transactionHistory, null, 2), 'utf8');
+    console.log('✅ transactions.json 生成完成');
+    
+    // 6. 显示摘要信息
     console.log('\n📊 生成摘要:');
     calculatedData.forEach(quarter => {
       console.log(`\n${quarter.quarter} (${quarter.date}):`);
       console.log(`  💰 AUM: $${quarter.aum.toLocaleString()}`);
       console.log(`  📈 持仓数量: ${quarter.holdings.length}`);
       console.log(`  🏆 最大持仓: ${quarter.holdings[0]?.symbol} (${quarter.holdings[0]?.percentage}%)`);
+      
+      // 显示交易明细
+      const quarterTx = transactionHistory.find(tx => tx.quarter === quarter.quarter);
+      if (quarterTx && quarterTx.transactions.length > 0) {
+        console.log(`  📊 交易明细:`);
+        quarterTx.transactions.forEach(tx => {
+          const action = tx.action === 'buy' ? '买入' : '卖出';
+          console.log(`     ${action} ${tx.symbol}: ${tx.shares} 股`);
+        });
+      }
     });
+    
+    console.log('\n🎉 所有数据文件生成完成！');
     
   } catch (error) {
     console.error('❌ 生成过程中出现错误:', error);
@@ -189,7 +199,5 @@ async function generateHoldings() {
   }
 }
 
-// 如果直接运行此脚本
+// 运行生成
 generateHoldings();
-
-export { generateHoldings };

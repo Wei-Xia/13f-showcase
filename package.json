@@ -7,9 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "generate-holdings": "node scripts/generate-all-data.mjs",
-    "export": "next build && next export",
-    "test-deploy": "scripts/test-deployment.sh"
+    "generate-holdings": "node scripts/generate-all-data.mjs"
   },
   "dependencies": {
     "next": "15.4.6",

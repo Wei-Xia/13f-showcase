@@ -36,20 +36,29 @@ jobs:
           aws-region: us-east-1
 
       - name: Deploy to S3
-        run: aws s3 sync ./out/ s3://${{ secrets.S3_BUCKET_NAME }} --delete
+        run: |
+          echo "🚀 开始部署到 S3..."
+          aws s3 sync ./out/ s3://${{ secrets.AWS_S3_BUCKET }} --delete
+          echo "✅ S3 部署完成"
 
       - name: Invalidate CloudFront cache
         run: |
+          echo "🔄 清除 CloudFront 缓存..."
           aws cloudfront create-invalidation \
-            --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+            --distribution-id ${{ secrets.DISTRIBUTION_ID }} \
             --paths "/*"
+          echo "✅ CloudFront 缓存清除完成"
 
-      - name: Notify deployment status
-        if: always()
+      - name: Deployment Summary
+        if: success()
         run: |
-          if [ ${{ job.status }} == 'success' ]; then
-            echo "✅ Deployment successful!"
-            echo "🌐 Website URL: https://${{ secrets.DOMAIN_NAME }}"
-          else
-            echo "❌ Deployment failed!"
-          fi
+          echo "🎉 部署成功完成！"
+          echo "📊 13F 披露网站已更新"
+          echo "⏰ 部署时间: $(date)"
+          echo "🌐 CloudFront 缓存更新可能需要几分钟时间"
+
+      - name: Deployment Failed
+        if: failure()
+        run: |
+          echo "❌ 部署失败"
+          echo "请检查 AWS 配置和权限设置"

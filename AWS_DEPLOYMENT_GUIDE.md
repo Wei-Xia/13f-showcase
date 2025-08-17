@@ -57,9 +57,8 @@ aws s3 mb s3://your-13f-showcase-bucket --region us-east-1
 |-------------|------|--------|
 | `AWS_ACCESS_KEY_ID` | AWS 访问密钥 ID | `AKIAIOSFODNN7EXAMPLE` |
 | `AWS_SECRET_ACCESS_KEY` | AWS 秘密访问密钥 | `wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY` |
-| `S3_BUCKET_NAME` | S3 存储桶名称 | `your-13f-showcase-bucket` |
-| `CLOUDFRONT_DISTRIBUTION_ID` | CloudFront 分发 ID | `E1PA6795UKMFR9` |
-| `DOMAIN_NAME` | 您的域名（可选） | `13f.yourdomain.com` |
+| `AWS_S3_BUCKET` | S3 存储桶名称 | `your-13f-showcase-bucket` |
+| `DISTRIBUTION_ID` | CloudFront 分发 ID | `E1PA6795UKMFR9` |
 
 ### 5. 创建 IAM 用户和策略
 

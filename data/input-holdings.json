@@ -1,5 +1,125 @@
 [
   {
+    "quarter": "Q1 2024",
+    "date": "2024-03-31",
+    "holdings": [
+      {
+        "symbol": "RBLX",
+        "company": "Roblox Corporation",
+        "shares": 1144,
+        "price": 58.92
+      },
+      {
+        "symbol": "IBM",
+        "company": "International Business Machines Corp.",
+        "shares": 1,
+        "price": 245.36
+      },
+      {
+        "symbol": "PYPL",
+        "company": "PayPal Holdings Inc.",
+        "shares": 137,
+        "price": 65.25
+      }
+    ]
+  },
+  {
+    "quarter": "Q2 2024",
+    "date": "2024-06-30",
+    "holdings": [
+      {
+        "symbol": "VOO",
+        "company": "Vanguard S&P 500 ETF",
+        "shares": 37,
+        "price": 512.33
+      },
+      {
+        "symbol": "RBLX",
+        "company": "Roblox Corporation",
+        "shares": 1441,
+        "price": 58.92
+      },
+      {
+        "symbol": "IBM",
+        "company": "International Business Machines Corp.",
+        "shares": 1,
+        "price": 245.36
+      },
+      {
+        "symbol": "PYPL",
+        "company": "PayPal Holdings Inc.",
+        "shares": 1,
+        "price": 65.25
+      }
+    ]
+  },
+  {
+    "quarter": "Q3 2024",
+    "date": "2024-09-30",
+    "holdings": [
+      {
+        "symbol": "VOO",
+        "company": "Vanguard S&P 500 ETF",
+        "shares": 110,
+        "price": 512.33
+      },
+      {
+        "symbol": "RBLX",
+        "company": "Roblox Corporation",
+        "shares": 1441,
+        "price": 58.92
+      },
+      {
+        "symbol": "IBM",
+        "company": "International Business Machines Corp.",
+        "shares": 1,
+        "price": 245.36
+      },
+      {
+        "symbol": "PYPL",
+        "company": "PayPal Holdings Inc.",
+        "shares": 1,
+        "price": 65.25
+      },
+      {
+        "symbol": "PDD",
+        "company": "PDD Holdings Inc.",
+        "shares": 100,
+        "price": 100
+      }
+    ]
+  },
+  {
+    "quarter": "Q4 2024",
+    "date": "2024-12-31",
+    "holdings": [
+      {
+        "symbol": "VOO",
+        "company": "Vanguard S&P 500 ETF",
+        "shares": 110,
+        "price": 512.33
+      },
+      {
+        "symbol": "RBLX",
+        "company": "Roblox Corporation",
+        "shares": 1441,
+        "price": 58.92
+      },
+      {
+        "symbol": "IBM",
+        "company": "International Business Machines Corp.",
+        "shares": 1,
+        "price": 245.36
+      },
+      {
+        "symbol": "PYPL",
+        "company": "PayPal Holdings Inc.",
+        "shares": 1,
+        "price": 65.25
+      }
+    ]
+  },
+  {
     "quarter": "Q1 2025",
     "date": "2025-03-31",
     "holdings": [

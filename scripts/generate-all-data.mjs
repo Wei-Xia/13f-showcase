@@ -52,7 +52,7 @@ function generateTransactionHistory(quarters) {
     const transactions = [];
 
     if (!previousQuarter) {
-      // 第一个季度，跳过（假设为初始建仓）
+      // 第一个季度作为基线，不生成交易记录
       transactionHistory.push({
         quarter: currentQuarter.quarter,
         date: currentQuarter.date,

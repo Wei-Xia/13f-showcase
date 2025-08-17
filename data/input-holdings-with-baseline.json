@@ -1,0 +1,98 @@
+[
+  {
+    "quarter": "Q0 2024",
+    "date": "2024-12-31",
+    "holdings": [
+      {
+        "symbol": "VOO",
+        "company": "Vanguard S&P 500 ETF",
+        "shares": 100,
+        "price": 450.00
+      },
+      {
+        "symbol": "RBLX",
+        "company": "Roblox Corporation",
+        "shares": 1370,
+        "price": 45.00
+      }
+    ]
+  },
+  {
+    "quarter": "Q1 2025",
+    "date": "2025-03-31",
+    "holdings": [
+      {
+        "symbol": "VOO",
+        "company": "Vanguard S&P 500 ETF",
+        "shares": 110,
+        "price": 512.33
+      },
+      {
+        "symbol": "RBLX",
+        "company": "Roblox Corporation",
+        "shares": 1130,
+        "price": 58.92
+      },
+      {
+        "symbol": "QQQM",
+        "company": "Invesco NASDAQ 100 ETF",
+        "shares": 30,
+        "price": 192.74
+      },
+      {
+        "symbol": "IBM",
+        "company": "International Business Machines Corp.",
+        "shares": 1,
+        "price": 245.36
+      },
+      {
+        "symbol": "PYPL",
+        "company": "PayPal Holdings Inc.",
+        "shares": 1,
+        "price": 65.25
+      }
+    ]
+  },
+  {
+    "quarter": "Q2 2025",
+    "date": "2025-06-30",
+    "holdings": [
+      {
+        "symbol": "VOO",
+        "company": "Vanguard S&P 500 ETF",
+        "shares": 161,
+        "price": 568.03
+      },
+      {
+        "symbol": "RBLX",
+        "company": "Roblox Corporation",
+        "shares": 744,
+        "price": 105.2
+      },
+      {
+        "symbol": "QQQM",
+        "company": "Invesco NASDAQ 100 ETF",
+        "shares": 155,
+        "price": 227.1
+      },
+      {
+        "symbol": "UNH",
+        "company": "UnitedHealth Group Inc.",
+        "shares": 40,
+        "price": 311.97
+      },
+      {
+        "symbol": "IBM",
+        "company": "International Business Machines Corp.",
+        "shares": 1,
+        "price": 292.8
+      },
+      {
+        "symbol": "PYPL",
+        "company": "PayPal Holdings Inc.",
+        "shares": 1,
+        "price": 74.32
+      }
+    ]
+  }
+]

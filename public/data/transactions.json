@@ -1,0 +1,109 @@
+[
+  {
+    "quarter": "Q1 2024",
+    "date": "2024-03-31",
+    "transactions": []
+  },
+  {
+    "quarter": "Q2 2024",
+    "date": "2024-06-30",
+    "transactions": [
+      {
+        "action": "buy",
+        "symbol": "RBLX",
+        "company": "Roblox Corporation",
+        "shares": 297
+      },
+      {
+        "action": "sell",
+        "symbol": "PYPL",
+        "company": "PayPal Holdings Inc.",
+        "shares": 136
+      },
+      {
+        "action": "buy",
+        "symbol": "VOO",
+        "company": "Vanguard S&P 500 ETF",
+        "shares": 37
+      }
+    ]
+  },
+  {
+    "quarter": "Q3 2024",
+    "date": "2024-09-30",
+    "transactions": [
+      {
+        "action": "buy",
+        "symbol": "VOO",
+        "company": "Vanguard S&P 500 ETF",
+        "shares": 73
+      },
+      {
+        "action": "buy",
+        "symbol": "PDD",
+        "company": "PDD Holdings Inc.",
+        "shares": 100
+      }
+    ]
+  },
+  {
+    "quarter": "Q4 2024",
+    "date": "2024-12-31",
+    "transactions": [
+      {
+        "action": "sell",
+        "symbol": "PDD",
+        "company": "PDD Holdings Inc.",
+        "shares": 100
+      }
+    ]
+  },
+  {
+    "quarter": "Q1 2025",
+    "date": "2025-03-31",
+    "transactions": [
+      {
+        "action": "sell",
+        "symbol": "RBLX",
+        "company": "Roblox Corporation",
+        "shares": 311
+      },
+      {
+        "action": "buy",
+        "symbol": "QQQM",
+        "company": "Invesco NASDAQ 100 ETF",
+        "shares": 30
+      }
+    ]
+  },
+  {
+    "quarter": "Q2 2025",
+    "date": "2025-06-30",
+    "transactions": [
+      {
+        "action": "buy",
+        "symbol": "VOO",
+        "company": "Vanguard S&P 500 ETF",
+        "shares": 51
+      },
+      {
+        "action": "sell",
+        "symbol": "RBLX",
+        "company": "Roblox Corporation",
+        "shares": 386
+      },
+      {
+        "action": "buy",
+        "symbol": "QQQM",
+        "company": "Invesco NASDAQ 100 ETF",
+        "shares": 125
+      },
+      {
+        "action": "buy",
+        "symbol": "UNH",
+        "company": "UnitedHealth Group Inc.",
+        "shares": 40
+      }
+    ]
+  }
+]

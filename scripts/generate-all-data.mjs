@@ -9,9 +9,103 @@ import fs from 'fs';
 import path from 'path';
 
 const DATA_DIR = path.join(process.cwd(), 'data');
+const PUBLIC_DATA_DIR = path.join(process.cwd(), 'public', 'data');
 const INPUT_FILE = path.join(DATA_DIR, 'input-holdings.json');
 const HOLDINGS_OUTPUT_FILE = path.join(DATA_DIR, 'holdings.json');
 const TRANSACTIONS_OUTPUT_FILE = path.join(DATA_DIR, 'transactions.json');
+const PUBLIC_HOLDINGS_FILE = path.join(PUBLIC_DATA_DIR, 'holdings.json');
+const PUBLIC_TRANSACTIONS_FILE = path.join(PUBLIC_DATA_DIR, 'transactions.json');
+
+// 数据验证函数
+function validateHoldings(quarterData, previousQuarterData = null) {
+  const errors = [];
+  const warnings = [];
+  
+  // 验证基本数据结构
+  if (!quarterData.quarter || !quarterData.date || !quarterData.holdings) {
+    errors.push(`❌ ${quarterData.quarter || 'Unknown'}: 缺少必要字段 (quarter, date, holdings)`);
+  }
+  
+  quarterData.holdings.forEach((holding, index) => {
+    // 验证持仓数据完整性
+    if (!holding.symbol || !holding.company || !holding.shares || !holding.price) {
+      errors.push(`❌ ${quarterData.quarter}: 持仓 ${index + 1} 缺少必要字段`);
+    }
+    
+    // 验证价格合理性
+    if (holding.price <= 0 || holding.price > 10000) {
+      warnings.push(`⚠️  ${quarterData.quarter}: ${holding.symbol} 价格异常 $${holding.price}`);
+    }
+    
+    // 验证股数合理性
+    if (holding.shares <= 0 || holding.shares > 1000000) {
+      warnings.push(`⚠️  ${quarterData.quarter}: ${holding.symbol} 股数异常 ${holding.shares}`);
+    }
+  });
+  
+  // 计算 AUM 并验证增长率
+  if (previousQuarterData) {
+    const currentAum = quarterData.holdings.reduce((sum, h) => sum + (h.shares * h.price), 0);
+    const previousAum = previousQuarterData.holdings.reduce((sum, h) => sum + (h.shares * h.price), 0);
+    const growthRate = (currentAum - previousAum) / previousAum;
+    
+    if (Math.abs(growthRate) > 0.5) {
+      warnings.push(`⚠️  ${quarterData.quarter}: AUM 变化 ${(growthRate * 100).toFixed(1)}% 较大，请确认数据正确性`);
+    }
+  }
+  
+  // 验证持仓集中度
+  const totalValue = quarterData.holdings.reduce((sum, h) => sum + (h.shares * h.price), 0);
+  const topHolding = quarterData.holdings.reduce((max, h) => {
+    const value = h.shares * h.price;
+    return value > max.value ? { symbol: h.symbol, value, percentage: (value / totalValue) * 100 } : max;
+  }, { value: 0, percentage: 0 });
+  
+  if (topHolding.percentage > 50) {
+    warnings.push(`⚠️  ${quarterData.quarter}: ${topHolding.symbol} 持仓占比 ${topHolding.percentage.toFixed(1)}% 过高，存在集中度风险`);
+  }
+  
+  return { errors, warnings };
+}
+
+// 验证所有数据的函数
+function validateAllData(inputData) {
+  console.log('\n🔍 开始数据验证...\n');
+  let totalErrors = 0;
+  let totalWarnings = 0;
+  
+  inputData.forEach((quarterData, index) => {
+    const previousQuarter = index > 0 ? inputData[index - 1] : null;
+    const { errors, warnings } = validateHoldings(quarterData, previousQuarter);
+    
+    if (errors.length > 0) {
+      console.log(`📅 ${quarterData.quarter}:`);
+      errors.forEach(error => console.log(`  ${error}`));
+      totalErrors += errors.length;
+    }
+    
+    if (warnings.length > 0) {
+      if (errors.length === 0) console.log(`📅 ${quarterData.quarter}:`);
+      warnings.forEach(warning => console.log(`  ${warning}`));
+      totalWarnings += warnings.length;
+    }
+  });
+  
+  console.log(`\n📊 验证结果: ${totalErrors} 个错误, ${totalWarnings} 个警告\n`);
+  
+  if (totalErrors > 0) {
+    console.log('❌ 发现数据错误，请修复后重试');
+    process.exit(1);
+  }
+  
+  if (totalWarnings > 0) {
+    console.log('⚠️  发现数据警告，建议检查');
+  } else {
+    console.log('✅ 所有数据验证通过');
+  }
+  
+  return true;
+}
 
 // 计算持仓数据的函数
 function calculateQuarterHoldings(inputData) {
@@ -136,11 +230,14 @@ async function generateHoldings() {
     const inputData = JSON.parse(fs.readFileSync(INPUT_FILE, 'utf8'));
     console.log(`✅ 成功读取 ${inputData.length} 个季度的数据`);
     
-    // 2. 计算持仓数据
+    // 2. 数据验证
+    validateAllData(inputData);
+    
+    // 3. 计算持仓数据
     console.log('🧮 计算市场价值、AUM 和百分比...');
     const calculatedData = calculateAllQuartersHoldings(inputData);
     
-    // 3. 自动生成交易记录
+    // 4. 自动生成交易记录
     console.log('📊 自动计算交易明细...');
     const transactionHistory = generateTransactionHistory(inputData);
     
@@ -171,6 +268,17 @@ async function generateHoldings() {
     console.log('💾 写入 transactions.json...');
     fs.writeFileSync(TRANSACTIONS_OUTPUT_FILE, JSON.stringify(transactionHistory, null, 2), 'utf8');
     console.log('✅ transactions.json 生成完成');
+    
+    // 6. 复制文件到 public 文件夹 (用于客户端访问)
+    console.log('📂 确保 public/data 目录存在...');
+    if (!fs.existsSync(PUBLIC_DATA_DIR)) {
+      fs.mkdirSync(PUBLIC_DATA_DIR, { recursive: true });
+    }
+    
+    console.log('📤 复制文件到 public 文件夹...');
+    fs.copyFileSync(HOLDINGS_OUTPUT_FILE, PUBLIC_HOLDINGS_FILE);
+    fs.copyFileSync(TRANSACTIONS_OUTPUT_FILE, PUBLIC_TRANSACTIONS_FILE);
+    console.log('✅ 文件已复制到 public/data/');
     
     // 6. 显示摘要信息
     console.log('\n📊 生成摘要:');

@@ -1,15 +1,63 @@
+'use client';
+
+import { Suspense } from 'react';
 import HoldingsPieChart from '@/components/HoldingsPieChart';
 import AUMLineChart from '@/components/AUMLineChart';
 import HoldingsTable from '@/components/HoldingsTable';
 import TransactionTable from '@/components/TransactionTable';
+import PerformanceMonitor from '@/components/PerformanceMonitor';
+import usePortfolioData from '@/hooks/usePortfolioData';
 import { Holding, AUM, QuarterlyTransactions, QuarterlyHoldings } from '@/types';
-import holdingsData from '@/data/holdings.json';
-import transactionsData from '@/data/transactions.json';
 
-export default function Home() {
-  const quarterlyHoldings: QuarterlyHoldings[] = holdingsData as QuarterlyHoldings[];
-  const transactions: QuarterlyTransactions[] = transactionsData as QuarterlyTransactions[];
-  
+function LoadingSpinner() {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 flex items-center justify-center">
+      <div className="text-center">
+        <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600 mb-4"></div>
+        <p className="text-gray-600 text-lg">📊 加载投资组合数据...</p>
+        <p className="text-gray-500 text-sm mt-2">首次加载可能需要几秒钟</p>
+      </div>
+    </div>
+  );
+}
+
+function ErrorMessage({ error, onRetry }: { error: string; onRetry: () => void }) {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 flex items-center justify-center">
+      <div className="bg-red-50/80 backdrop-blur-sm border border-red-200 rounded-xl p-8 max-w-md shadow-xl">
+        <div className="flex items-center mb-4">
+          <svg className="w-8 h-8 text-red-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <h3 className="text-red-800 font-semibold text-lg">数据加载失败</h3>
+        </div>
+        <p className="text-red-700 mb-6">{error}</p>
+        <div className="flex gap-3">
+          <button 
+            onClick={onRetry}
+            className="flex-1 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors font-medium"
+          >
+            🔄 重新加载
+          </button>
+          <button 
+            onClick={() => window.location.reload()} 
+            className="flex-1 px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors font-medium"
+          >
+            🌐 刷新页面
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function PortfolioContent() {
+  const { holdings: quarterlyHoldings, transactions, loading, error, refreshData } = usePortfolioData();
+
+  if (loading) return <LoadingSpinner />;
+  if (error) return <ErrorMessage error={error} onRetry={refreshData} />;
+  if (!quarterlyHoldings || !transactions) return <LoadingSpinner />;
+
   // Extract AUM data from quarterly holdings
   const aum: AUM[] = quarterlyHoldings.map(qh => ({
     quarter: qh.quarter,
@@ -183,6 +231,17 @@ export default function Home() {
           </div>
         </section>
       </main>
+      
+      {/* 性能监控器 */}
+      <PerformanceMonitor onRefresh={refreshData} />
     </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={<LoadingSpinner />}>
+      <PortfolioContent />
+    </Suspense>
   );
 }

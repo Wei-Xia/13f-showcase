@@ -1,6 +1,6 @@
 'use client';
 
-import { QuarterlyHoldings, QuarterlyTransactions } from '@/types';
+import { QuarterlyHoldings, QuarterlyTransactions, Transaction } from '@/types';
 import TimelineHoldingsTable from './TimelineHoldingsTable';
 import { useState } from 'react';
 
@@ -39,7 +39,7 @@ export default function QuarterlyTimeline({ quarterlyHoldings, quarterlyTransact
     return quarterlyTransactions.find(qt => qt.quarter === quarter);
   };
 
-  const sortTransactions = (transactions: any[]) => {
+  const sortTransactions = (transactions: Transaction[]) => {
     return [...transactions].sort((a, b) => {
       const actionOrder = { buy: 1, sell: 0 };
       const actionDiff = actionOrder[b.action as keyof typeof actionOrder] - actionOrder[a.action as keyof typeof actionOrder];
@@ -58,7 +58,6 @@ export default function QuarterlyTimeline({ quarterlyHoldings, quarterlyTransact
         const isLatest = index === 0;
         const isExpanded = expandedQuarters.has(quarterData.quarter);
         const quarterTransactions = getTransactionsForQuarter(quarterData.quarter);
-        const totalValue = quarterData.holdings.reduce((sum, holding) => sum + holding.marketValue, 0);
 
         return (
           <div key={quarterData.quarter} className="relative">

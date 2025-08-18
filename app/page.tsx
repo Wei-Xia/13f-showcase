@@ -3,8 +3,7 @@
 import { Suspense } from 'react';
 import HoldingsPieChart from '@/components/HoldingsPieChart';
 import AUMLineChart from '@/components/AUMLineChart';
-import HoldingsTable from '@/components/HoldingsTable';
-import TransactionTable from '@/components/TransactionTable';
+import QuarterlyTimeline from '@/components/QuarterlyTimeline';
 import usePortfolioData from '@/hooks/usePortfolioData';
 import { Holding, AUM } from '@/types';
 
@@ -186,48 +185,19 @@ function PortfolioContent() {
           </div>
         </section>
 
-        {/* Detailed Holdings Table */}
+        {/* Quarterly Holdings and Trading Timeline */}
         <section className="mb-16">
-          <div className="bg-white/70 backdrop-blur-md rounded-2xl shadow-xl border border-white/20 p-8 hover:shadow-2xl transition-all duration-300">
-            <div className="flex items-center mb-6">
-              <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl mr-4">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
-                </svg>
-              </div>
-              <div>
-                <h2 className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-                  Detailed Holdings
-                </h2>
-                <p className="text-gray-600 mt-1">
-                  Complete list of all portfolio positions as of {latestAUM.date}
-                </p>
-              </div>
+          <div className="mb-8">
+            <div className="text-center">
+              <h2 className="text-4xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-2">
+                Quarterly Portfolio History
+              </h2>
+              <p className="text-xl text-gray-600">
+                Complete timeline of holdings and trading activity by quarter
+              </p>
             </div>
-            <HoldingsTable holdings={holdings} />
           </div>
-        </section>
-
-        {/* Transaction History Section */}
-        <section className="mb-16">
-          <div className="bg-white/70 backdrop-blur-md rounded-2xl shadow-xl border border-white/20 p-8 hover:shadow-2xl transition-all duration-300">
-            <div className="flex items-center mb-6">
-              <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-orange-500 to-red-600 rounded-xl mr-4">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-                </svg>
-              </div>
-              <div>
-                <h2 className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-                  Quarterly Trading Activity
-                </h2>
-                <p className="text-gray-600 mt-1">
-                  Portfolio adjustments and trading decisions by quarter
-                </p>
-              </div>
-            </div>
-            <TransactionTable quarterlyTransactions={transactions} />
-          </div>
+          <QuarterlyTimeline quarterlyHoldings={quarterlyHoldings} quarterlyTransactions={transactions} />
         </section>
       </main>
     </div>

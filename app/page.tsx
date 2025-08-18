@@ -1,6 +1,5 @@
 'use client';
 
-import { Suspense } from 'react';
 import HoldingsPieChart from '@/components/HoldingsPieChart';
 import AUMLineChart from '@/components/AUMLineChart';
 import QuarterlyTimeline from '@/components/QuarterlyTimeline';
@@ -38,9 +37,8 @@ function ErrorMessage({ error, onRetry }: { error: string; onRetry: () => void }
 }
 
 function PortfolioContent() {
-  const { holdings: quarterlyHoldings, transactions, loading, error, refreshData } = usePortfolioData();
+  const { holdings: quarterlyHoldings, transactions, error, refreshData } = usePortfolioData();
 
-  if (loading) return null;
   if (error) return <ErrorMessage error={error} onRetry={refreshData} />;
   if (!quarterlyHoldings || !transactions) return null;
 
@@ -193,9 +191,5 @@ function PortfolioContent() {
 }
 
 export default function Home() {
-  return (
-    <Suspense fallback={null}>
-      <PortfolioContent />
-    </Suspense>
-  );
+  return <PortfolioContent />;
 }

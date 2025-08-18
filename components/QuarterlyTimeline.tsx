@@ -1,7 +1,7 @@
 'use client';
 
 import { QuarterlyHoldings, QuarterlyTransactions } from '@/types';
-import HoldingsTable from './HoldingsTable';
+import TimelineHoldingsTable from './TimelineHoldingsTable';
 import { useState } from 'react';
 
 interface QuarterlyTimelineProps {
@@ -155,7 +155,7 @@ export default function QuarterlyTimeline({ quarterlyHoldings, quarterlyTransact
                       </div>
                       <h4 className="text-xl font-bold text-gray-900">Portfolio Holdings</h4>
                     </div>
-                    <HoldingsTable holdings={quarterData.holdings} />
+                    <TimelineHoldingsTable holdings={quarterData.holdings} />
                   </div>
 
                   {/* Transactions Section */}

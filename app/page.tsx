@@ -32,14 +32,14 @@ function ErrorMessage({ error, onRetry }: { error: string; onRetry: () => void }
         </div>
         <p className="text-red-700 mb-6">{error}</p>
         <div className="flex gap-3">
-          <button 
+          <button
             onClick={onRetry}
             className="flex-1 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors font-medium"
           >
             🔄 重新加载
           </button>
-          <button 
-            onClick={() => window.location.reload()} 
+          <button
+            onClick={() => window.location.reload()}
             className="flex-1 px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors font-medium"
           >
             🌐 刷新页面
@@ -63,7 +63,7 @@ function PortfolioContent() {
     date: qh.date,
     aum: qh.aum
   }));
-  
+
   const latestHoldings = quarterlyHoldings[quarterlyHoldings.length - 1];
   const holdings: Holding[] = latestHoldings.holdings;
   const latestAUM = aum[aum.length - 1];
@@ -211,7 +211,7 @@ function PortfolioContent() {
         {/* Transaction History Section */}
         <section className="mb-16">
           <div className="bg-white/70 backdrop-blur-md rounded-2xl shadow-xl border border-white/20 p-8 hover:shadow-2xl transition-all duration-300">
-            <div className="flex items-center mb-8">
+            <div className="flex items-center mb-6">
               <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-orange-500 to-red-600 rounded-xl mr-4">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />

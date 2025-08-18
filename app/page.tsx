@@ -7,18 +7,6 @@ import QuarterlyTimeline from '@/components/QuarterlyTimeline';
 import usePortfolioData from '@/hooks/usePortfolioData';
 import { Holding, AUM } from '@/types';
 
-function LoadingSpinner() {
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 flex items-center justify-center">
-      <div className="text-center">
-        <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600 mb-4"></div>
-        <p className="text-gray-600 text-lg">📊 加载投资组合数据...</p>
-        <p className="text-gray-500 text-sm mt-2">首次加载可能需要几秒钟</p>
-      </div>
-    </div>
-  );
-}
-
 function ErrorMessage({ error, onRetry }: { error: string; onRetry: () => void }) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 flex items-center justify-center">
@@ -52,9 +40,9 @@ function ErrorMessage({ error, onRetry }: { error: string; onRetry: () => void }
 function PortfolioContent() {
   const { holdings: quarterlyHoldings, transactions, loading, error, refreshData } = usePortfolioData();
 
-  if (loading) return <LoadingSpinner />;
+  if (loading) return null;
   if (error) return <ErrorMessage error={error} onRetry={refreshData} />;
-  if (!quarterlyHoldings || !transactions) return <LoadingSpinner />;
+  if (!quarterlyHoldings || !transactions) return null;
 
   // Extract AUM data from quarterly holdings
   const aum: AUM[] = quarterlyHoldings.map(qh => ({
@@ -206,7 +194,7 @@ function PortfolioContent() {
 
 export default function Home() {
   return (
-    <Suspense fallback={<LoadingSpinner />}>
+    <Suspense fallback={null}>
       <PortfolioContent />
     </Suspense>
   );

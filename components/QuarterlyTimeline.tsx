@@ -74,7 +74,7 @@ export default function QuarterlyTimeline({ quarterlyHoldings, quarterlyTransact
             `}>
               {/* Quarter Header */}
               <div 
-                className="flex items-center justify-between p-8 cursor-pointer"
+                className="flex flex-col lg:flex-row lg:items-center lg:justify-between p-8 cursor-pointer gap-6"
                 onClick={() => toggleQuarter(quarterData.quarter)}
               >
                 <div className="flex items-center">
@@ -98,12 +98,12 @@ export default function QuarterlyTimeline({ quarterlyHoldings, quarterlyTransact
                   </div>
 
                   <div>
-                    <div className="flex items-center gap-3">
-                      <h3 className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+                      <h3 className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
                         {quarterData.quarter}
                       </h3>
                       {isLatest && (
-                        <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-bold bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-800">
+                        <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-bold bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-800 w-fit">
                           Current
                         </span>
                       )}
@@ -115,23 +115,25 @@ export default function QuarterlyTimeline({ quarterlyHoldings, quarterlyTransact
                 </div>
 
                 {/* Summary Stats */}
-                <div className="flex items-center gap-8">
-                  <div className="text-right">
-                    <p className="text-sm text-gray-600">Total AUM</p>
-                    <p className="text-2xl font-bold text-indigo-600">{formatValue(quarterData.aum)}</p>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-sm text-gray-600">Holdings Count</p>
-                    <p className="text-2xl font-bold text-purple-600">{quarterData.holdings.length}</p>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-sm text-gray-600">Transactions</p>
-                    <p className="text-2xl font-bold text-orange-600">{quarterTransactions?.transactions.length || 0}</p>
+                <div className="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-8">
+                  <div className="grid grid-cols-3 gap-4 lg:flex lg:gap-8">
+                    <div className="text-center lg:text-right">
+                      <p className="text-xs lg:text-sm text-gray-600">Total AUM</p>
+                      <p className="text-lg lg:text-2xl font-bold text-indigo-600">{formatValue(quarterData.aum)}</p>
+                    </div>
+                    <div className="text-center lg:text-right">
+                      <p className="text-xs lg:text-sm text-gray-600">Holdings Count</p>
+                      <p className="text-lg lg:text-2xl font-bold text-purple-600">{quarterData.holdings.length}</p>
+                    </div>
+                    <div className="text-center lg:text-right">
+                      <p className="text-xs lg:text-sm text-gray-600">Transactions</p>
+                      <p className="text-lg lg:text-2xl font-bold text-orange-600">{quarterTransactions?.transactions.length || 0}</p>
+                    </div>
                   </div>
                   
                   {/* Expand/Collapse Icon */}
                   <div className={`
-                    transform transition-transform duration-200 text-gray-400
+                    transform transition-transform duration-200 text-gray-400 self-center lg:self-auto
                     ${isExpanded ? 'rotate-180' : ''}
                   `}>
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

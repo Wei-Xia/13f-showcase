@@ -54,6 +54,9 @@ function PortfolioContent() {
   const latestAUM = aum[aum.length - 1];
   const latestQuarter = latestAUM.quarter;
   const totalValue = holdings.reduce((sum, holding) => sum + holding.marketValue, 0);
+  
+  // 找到市值最大的持仓
+  const largestPosition = [...holdings].sort((a, b) => b.marketValue - a.marketValue)[0];
 
   const formatValue = (value: number) => {
     return new Intl.NumberFormat('en-US', {
@@ -157,7 +160,7 @@ function PortfolioContent() {
                 <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-4 border border-purple-100">
                   <div className="flex justify-between items-center">
                     <span className="text-gray-700 font-medium">Largest Position</span>
-                    <span className="font-bold text-xl text-purple-600">{holdings[0]?.symbol} ({holdings[0]?.percentage}%)</span>
+                    <span className="font-bold text-xl text-purple-600">{largestPosition?.symbol} ({largestPosition?.percentage}%)</span>
                   </div>
                 </div>
                 <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-4 border border-orange-100">

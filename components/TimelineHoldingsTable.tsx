@@ -28,6 +28,8 @@ const formatShares = (shares: number) => {
 };
 
 export default function TimelineHoldingsTable({ holdings }: TimelineHoldingsTableProps) {
+  // 按市值从大到小排序
+  const sortedHoldings = [...holdings].sort((a, b) => b.marketValue - a.marketValue);
   const totalValue = holdings.reduce((sum, holding) => sum + holding.marketValue, 0);
 
   return (
@@ -56,7 +58,7 @@ export default function TimelineHoldingsTable({ holdings }: TimelineHoldingsTabl
           </tr>
         </thead>
         <tbody className="divide-y divide-gray-200/50">
-          {holdings.map((holding, index) => (
+          {sortedHoldings.map((holding, index) => (
             <tr key={holding.symbol} className={`
               ${index % 2 === 0 ? 'bg-white/30' : 'bg-gray-50/30'} 
               hover:bg-blue-50/50 transition-colors duration-200

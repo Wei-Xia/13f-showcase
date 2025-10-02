@@ -256,5 +256,60 @@
         "percentage": 0.03
       }
     ]
+  },
+  {
+    "quarter": "Q3 2025",
+    "date": "2025-09-30",
+    "aum": 266813,
+    "holdings": [
+      {
+        "symbol": "VOO",
+        "company": "Vanguard S&P 500 ETF",
+        "shares": 176,
+        "price": 612.38,
+        "marketValue": 107779,
+        "percentage": 40.39
+      },
+      {
+        "symbol": "RBLX",
+        "company": "Roblox Corporation",
+        "shares": 1,
+        "price": 138.52,
+        "marketValue": 139,
+        "percentage": 0.05
+      },
+      {
+        "symbol": "QQQM",
+        "company": "Invesco NASDAQ 100 ETF",
+        "shares": 155,
+        "price": 247.12,
+        "marketValue": 38304,
+        "percentage": 14.36
+      },
+      {
+        "symbol": "UNH",
+        "company": "UnitedHealth Group Inc.",
+        "shares": 348.2261,
+        "price": 345.3,
+        "marketValue": 120242,
+        "percentage": 45.07
+      },
+      {
+        "symbol": "IBM",
+        "company": "International Business Machines Corp.",
+        "shares": 1,
+        "price": 282.16,
+        "marketValue": 282,
+        "percentage": 0.11
+      },
+      {
+        "symbol": "PYPL",
+        "company": "PayPal Holdings Inc.",
+        "shares": 1,
+        "price": 67.06,
+        "marketValue": 67,
+        "percentage": 0.03
+      }
+    ]
   }
 ]

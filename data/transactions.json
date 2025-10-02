@@ -105,5 +105,29 @@
         "shares": 40
       }
     ]
+  },
+  {
+    "quarter": "Q3 2025",
+    "date": "2025-09-30",
+    "transactions": [
+      {
+        "action": "buy",
+        "symbol": "VOO",
+        "company": "Vanguard S&P 500 ETF",
+        "shares": 15
+      },
+      {
+        "action": "sell",
+        "symbol": "RBLX",
+        "company": "Roblox Corporation",
+        "shares": 743
+      },
+      {
+        "action": "buy",
+        "symbol": "UNH",
+        "company": "UnitedHealth Group Inc.",
+        "shares": 308.2261
+      }
+    ]
   }
 ]
